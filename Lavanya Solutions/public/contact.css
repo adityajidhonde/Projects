@@ -1,0 +1,237 @@
+html, body{
+    width: 100%;
+    height: 100%;
+    margin: 0%;
+    background-color: #f7e8e8;
+}
+html{
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+header{
+    background-color: #f7e8e8;
+}
+
+header:hover{
+    background-color: #fdd4d4;
+}
+
+.nav{
+    font-family:  'EB Garamond', serif;
+    text-align: right;
+    height: 70px;
+    line-height: 70px;
+}
+.menu{
+    margin: 0 76px 0 0;
+}
+.menu a{
+    clear: right;
+    color: black;
+    font-size: 20px;
+    text-decoration: none;
+    margin: 0 10px;
+    line-height: 70px;
+    display: inline;
+}
+.menu a:hover{
+    border-bottom: 1px solid rgb(238, 183, 183);
+}
+span{
+    color: hotpink;
+}
+
+header img {
+    position: absolute;
+    left: 2%;
+    top: 3px;
+    height: 66px;
+    z-index: 2;
+}
+label{
+    margin: 0 40px 0 0;
+    font-size: 26px;
+    line-height: 70px;
+    display: none;
+    width: 26px;
+    float: right;
+}
+#toggle{
+    display: none;
+}
+
+@media only screen and (max-width: 786px){
+    label{
+        display: block;
+        cursor: pointer;
+    }
+    .menu{
+        text-align: center;
+        width: 100%;
+        display: none;
+    }
+    .menu a{
+        display: block;
+        background-color: #fdd4d4;
+        z-index: 10;
+        margin: 0;
+    }
+    #toggle:checked + .menu {
+        display: grid;
+    }
+}
+
+/*Contact Start*/
+
+.state{
+    background-image: url('/Our-Story-Hero.png');
+    background-size: 100% 100%;
+    height: 80%;
+    text-align: center;
+    font-size: 370%;
+    font-family: 'EB Garamond', serif;
+}
+
+.state p{
+    font-size: 35%;
+    margin-top: 14%;
+}
+
+.ite{
+    background-color: white;
+    height: 73%;
+    display: flex;
+    text-align: center;
+    padding: 2%;
+}
+
+.ite p{
+    font-family: Jost;
+    opacity: 0.7;
+    font-size: 16px;
+}
+.clo{
+    padding: 2%;
+    height: 250px;
+    width: 25%;
+    margin: auto;
+    text-align: center;
+}
+.clo img{
+    height: 55px;
+    width: 18%;
+}
+.phon{
+    padding: 2%;
+    margin: auto;
+    height: 250px;
+    width: 25%;
+    text-align: center;
+}
+.phon img{
+    height: 55px;
+    width: 18%;
+}
+.loc{
+    padding: 2%;
+    margin: auto;
+    height: 250px;
+    width: 25%;
+    text-align: center;
+}
+.loc img{
+    height: 55px;
+    width: 18%;
+}
+
+.map img{
+    width: 40%;
+    height: 600px;
+}
+
+.map{
+    background-color: #fdd4d4;
+}
+
+form{
+    padding: 1%;
+    text-align: center;
+}
+.forr{
+    background-color: #fdd4d4;
+    font-family:  'EB Garamond', serif;
+}
+.forr h1{
+    font-size: 40px;
+    padding-top: 5%;
+    margin-top: 0%;
+    text-align: center;
+}
+
+.forr p{
+    text-align: center;
+    font-size: larger;
+}
+
+.un{
+    margin: 2%;
+    height: 50px;
+}
+.ph{
+    height: 50px;
+    margin: 2%;
+}
+.em{
+    height: 50px;
+    margin: 2%;
+    width: 13%;
+}
+.su{
+    height: 50px;
+    width: 48%;
+    margin: 2%;
+}
+.me{
+    height: 130px;
+    width: 48%;
+    margin: 2%;
+}
+
+.submi{
+    font-family: Jost;
+    font-size: 14px;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    height: 50px;
+    width: 16%;
+    background-color: black;
+    color: white;
+    text-align: center;
+    text-transform: uppercase;
+}
+
+.submi:hover{
+    cursor: pointer;
+}
+
+@media only screen and (max-width: 786px){
+    .ite{
+        display: block;
+        height: 115%;
+    }
+    .map img {
+        width: 100%;
+        height: 400px;
+    }
+    .map iframe{
+        border: 0;
+        height: 400px;
+        width: 100%;
+    }
+    .submi {
+        margin-left: 3%;
+    }
+    form{
+        text-align: left;
+    }
+}
