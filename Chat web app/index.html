@@ -1,23 +1,51 @@
-<!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>iChat - Realtime Node Socket.io Chat App</title>
-    <script defer src="http://localhost:8000/socket.io/socket.io.js"></script>
-    <script defer src="js/client.js"></script>
-    <link rel="stylesheet" href="css/index.css">
+    <title>WebSocket Chat</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
 </head>
 <body>
-    <nav>
-        <h1>Welcome to iChat App</h1>
-    </nav>
-    <div class="container"></div> 
-    <div class="send">
-        <form action="#" id="send-container">
-            <input type="text" name="messageInp" id="messageInp">
-            <button class="btn" type="submit">Send</button>
-        </form>
+    <div class="h-screen w-screen flex flex-col justify-between">
+        <div id="chat" class="p-3 overflow-auto">
+        </div>
+        <div class="flex">
+            <input id="message" type="text" class="px-3 w-full border-t border-gray-300 outline-none text-gray-700" placeholder="Type your message..." />
+            <button class="px-8 py-3 bg-green-500 text-white hover:bg-green-600 transition-colors" onclick="sendMessage()">Send</button>
+        </div>
     </div>
+
+    <script>
+        const ws = new WebSocket("ws://localhost:3000");
+
+        ws.addEventListener("message", function(event) {
+            const data = JSON.parse(event.data);
+
+            if (data.type === "message") {
+                addMessage(data.data);
+            }
+        });
+
+        function sendMessage() {
+            const message = document.getElementById("message").value;
+
+            if (!message) return false;
+
+            ws.send(JSON.stringify({ type: "message", data: message }));
+
+            addMessage(message);
+            document.getElementById("message").value = "";
+        }
+
+        function addMessage(message) {
+            const node = document.createElement("P");
+            const text = document.createTextNode(message);
+
+            node.appendChild(text);
+            node.classList.add("text-gray-700", "py-1");
+
+            document.getElementById("chat").appendChild(node);
+        }
+    </script>
 </body>
 </html>
